@@ -12,7 +12,7 @@ export default function AdminDemoPage() {
         </div>
       </div>
       <div className="flex-1 p-4">
-        <DemoFrame />
+        <DemoFrame className="h-full" />
       </div>
     </div>
   );

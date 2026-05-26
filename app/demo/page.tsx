@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function DemoPage() {
   return (
-    <div className="flex min-h-full flex-1 flex-col bg-slate-50">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
           <Link href="/" className="font-black tracking-tight text-slate-900">
@@ -19,8 +19,8 @@ export default function DemoPage() {
           </div>
         </div>
       </header>
-      <div className="mx-auto w-full max-w-6xl flex-1 p-4">
-        <DemoFrame />
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col p-4 min-h-0">
+        <DemoFrame className="flex-1 min-h-0" />
       </div>
     </div>
   );

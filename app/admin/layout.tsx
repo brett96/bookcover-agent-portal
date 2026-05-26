@@ -42,6 +42,12 @@ export default async function AdminLayout({
             Portal demo
           </Link>
           <Link
+            href="/admin/analytics"
+            className="mt-1 block rounded-xl px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100"
+          >
+            Analytics
+          </Link>
+          <Link
             href="/demo"
             className="mt-1 block rounded-xl px-3 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100"
           >

@@ -1,8 +1,10 @@
 import DemoFrame from "@/components/demo-frame";
+import TrackPageView from "@/components/track-pageview";
 
 export default function AdminDemoPage() {
   return (
     <div className="flex h-full min-h-0 flex-col">
+      <TrackPageView properties={{ surface: "admin-demo" }} />
       <div className="border-b border-slate-200 bg-white px-8 py-5">
         <div className="text-sm font-black text-slate-900">
           Agent Portal Demo

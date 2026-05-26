@@ -11,7 +11,7 @@ export default function DemoFrame({ className }: { className?: string }) {
       <iframe
         title="BookCover Agent Portal Demo"
         src="/agent-portal-demo.html"
-        className="h-full w-full"
+        className="block h-full w-full border-0"
       />
     </div>
   );

@@ -12,7 +12,7 @@ export default async function AdminLayout({
   if (!session?.user) redirect("/login");
 
   return (
-    <div className="flex min-h-full flex-1 bg-slate-50">
+    <div className="flex h-dvh overflow-hidden bg-slate-50">
       <aside className="w-72 border-r border-slate-200 bg-white">
         <div className="p-5">
           <div className="text-[10px] font-extrabold tracking-[0.22em] text-emerald-700/80">
@@ -52,7 +52,9 @@ export default async function AdminLayout({
           </div>
         </nav>
       </aside>
-      <main className="flex-1">{children}</main>
+      <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
+        {children}
+      </main>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifyDemoJwt, DEMO_JWT_COOKIE } from "@/lib/demo-jwt";
-
 const LANDING_URL =
   process.env.NEXT_PUBLIC_LANDING_URL ?? "https://bookcover.cercalabs.com";
 
@@ -9,6 +8,7 @@ function redirectToLanding(req: NextRequest) {
   const landing = new URL(LANDING_URL);
   landing.searchParams.set("login", "1");
   landing.searchParams.set("return", req.nextUrl.href);
+  landing.searchParams.set("gate_bounce", "1");
   return NextResponse.redirect(landing);
 }
 

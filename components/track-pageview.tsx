@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { forwardToCentralTrack } from "@/lib/central-track";
 
 function getOrCreateId(storageKey: string) {
   if (typeof window === "undefined") return "anon";
@@ -36,19 +37,21 @@ export default function TrackPageView({
     const sessionId = getOrCreateId("bc_session_id");
     const path = window.location.pathname + window.location.search;
 
+    const payload = {
+      visitorId,
+      sessionId,
+      eventType,
+      path,
+      referrer: document.referrer || null,
+      ...getUtmParams(),
+      properties: properties ?? {},
+    };
     void fetch("/api/track", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        visitorId,
-        sessionId,
-        eventType,
-        path,
-        referrer: document.referrer || null,
-        ...getUtmParams(),
-        properties: properties ?? {},
-      }),
+      body: JSON.stringify(payload),
     });
+    forwardToCentralTrack("agent", payload);
   }, [eventType, properties]);
 
   return null;

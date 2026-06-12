@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "bookcover-agent-portal.vercel.app" }],
+      "destination": "https://bcagentportaldemo.cercalabs.com/:path*",
+      "permanent": false
+    }
+  ]
+}

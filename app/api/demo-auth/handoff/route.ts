@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   const dest = destRaw.startsWith("/") ? destRaw : `/${destRaw}`;
 
   if (!token) {
-    return NextResponse.redirect(LANDING_URL);
+    return NextResponse.redirect(LANDING_URL, 307);
   }
 
   const session = await verifyDemoJwt(token);
@@ -20,10 +20,10 @@ export async function GET(req: Request) {
     const landing = new URL(LANDING_URL);
     landing.searchParams.set("handoff_failed", "1");
     landing.searchParams.set("demo", "agent");
-    return NextResponse.redirect(landing);
+    return NextResponse.redirect(landing, 307);
   }
 
-  const res = NextResponse.redirect(new URL(dest, url.origin));
+  const res = NextResponse.redirect(new URL(dest, url.origin), 307);
   res.cookies.set({
     ...demoJwtCookieOptions(url.hostname),
     value: token,

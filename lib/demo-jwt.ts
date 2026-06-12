@@ -11,7 +11,6 @@ function secret(): Uint8Array | null {
 export async function verifyDemoJwt(
   token: string | undefined
 ): Promise<{ uid: string; email: string } | null> {
-  if (!token) return null;
   const key = secret();
   if (!key) {
     if (process.env.NODE_ENV === "development") {
@@ -19,6 +18,7 @@ export async function verifyDemoJwt(
     }
     return null;
   }
+  if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, key);
     if (typeof payload.uid !== "string" || typeof payload.email !== "string") {

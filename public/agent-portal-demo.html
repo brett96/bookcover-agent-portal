@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>BookCover · Agent Portal Demo · v57</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
@@ -78,23 +78,215 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
 
 /* v11 polish: long bullet text should wrap nicely without cutting characters */
 .bul{word-break:break-word}
+
+/* Mobile layout */
+.guide-toggle,.mockup-hint,.snote-mobile{display:none}
+.shell{height:100dvh}
+
+@media (max-width:768px){
+  html,body{touch-action:manipulation}
+  .shell{width:100%;min-height:0}
+  .flow-tabbar{
+    padding:0 4px 0 8px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+  }
+  .flow-tabbar::-webkit-scrollbar{display:none}
+  .tab-group-label{display:none}
+  .tab-group{margin-left:0!important}
+  .tab-group + .tab-group{margin-left:8px!important}
+  .tab-group + .tab-group::before{display:none}
+  .flow-tab{
+    padding:0 11px;
+    font-size:12px;
+    height:40px!important;
+    scroll-snap-align:start;
+    min-height:40px;
+  }
+  .flow-tab .tab-n{font-size:10px;padding:1px 5px}
+  .main{flex-direction:column;min-height:0}
+  .guide-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    width:100%;
+    padding:10px 14px;
+    background:#F8FAFC;
+    border:none;
+    border-bottom:1px solid #E2E8F0;
+    font-family:inherit;
+    font-size:12px;
+    font-weight:700;
+    color:#0F172A;
+    cursor:pointer;
+    text-align:left;
+    flex-shrink:0;
+  }
+  .guide-toggle-summary{
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    color:#64748B;
+    font-weight:600;
+  }
+  .guide-toggle-summary strong{color:#0F172A;font-weight:800}
+  .guide-toggle-chevron{
+    flex-shrink:0;
+    width:22px;
+    height:22px;
+    border-radius:6px;
+    background:white;
+    border:1px solid #E2E8F0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+    color:#64748B;
+    transition:transform .2s;
+  }
+  aside.sidebar.guide-open .guide-toggle-chevron{transform:rotate(180deg)}
+  aside.sidebar{
+    width:100%!important;
+    padding:0!important;
+    border-right:none!important;
+    border-bottom:1px solid #E2E8F0;
+    flex-shrink:0;
+    overflow:hidden!important;
+  }
+  aside.sidebar .sidebar-body{
+    display:none;
+    flex-direction:column;
+    padding:12px 14px 14px;
+    max-height:38vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  aside.sidebar.guide-open .sidebar-body{display:flex}
+  .st{font-size:15px}
+  .ss{margin-bottom:10px}
+  .snote{display:none}
+  .snote-mobile{
+    display:block;
+    margin-top:10px;
+    padding:8px 10px;
+    background:#F8FAFC;
+    border-radius:7px;
+    border:1px solid #E2E8F0;
+    font-size:10px;
+    color:#64748B;
+    line-height:1.5;
+    flex-shrink:0;
+  }
+  .device-area{
+    flex:1;
+    min-height:0;
+    padding:0;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .mockup-hint{
+    display:none;
+    flex-shrink:0;
+    text-align:center;
+    font-size:10px;
+    color:#94A3B8;
+    padding:6px 12px 2px;
+    font-weight:600;
+    letter-spacing:.2px;
+  }
+  .device-area.has-mockup .mockup-hint{display:block}
+  #screen{
+    width:100%;
+    max-width:none;
+    min-width:680px;
+    padding:4px 8px 10px;
+    flex-shrink:0;
+  }
+  #screen>div{border-radius:8px!important;box-shadow:0 4px 24px rgba(0,0,0,.12)!important}
+  #ov-panel,#wiw-panel{padding:16px 12px!important}
+  #ov-panel [style*="grid-template-columns:1fr 1fr"],
+  #wiw-panel [style*="grid-template-columns:1fr 1fr"],
+  #ov-panel [style*="grid-template-columns:repeat(3,1fr)"],
+  #wiw-panel [style*="grid-template-columns:repeat(3,1fr)"],
+  #ov-panel [style*="grid-template-columns:repeat(4,1fr)"],
+  #wiw-panel [style*="grid-template-columns:repeat(4,1fr)"]{
+    grid-template-columns:1fr!important;
+  }
+  #ov-panel [style*="display:flex"][style*="margin-bottom:28px"],
+  #ov-panel [style*="display:flex"][style*="margin-bottom:24px"],
+  #wiw-panel [style*="display:flex"][style*="margin-bottom:24px"]{
+    flex-wrap:wrap;
+    gap:10px!important;
+  }
+  #ov-panel [style*="margin-left:auto"],
+  #wiw-panel [style*="margin-left:auto"]{
+    margin-left:0!important;
+    width:100%;
+    text-align:left;
+    margin-top:4px;
+  }
+  #ov-panel [style*="font-size:26px"],
+  #wiw-panel [style*="font-size:26px"]{font-size:20px!important}
+  #wiw-panel [style*="font-size:32px"]{font-size:24px!important;line-height:1.2!important}
+  #ov-panel [style*="padding:32px 36px"],
+  #wiw-panel [style*="padding:32px 36px"],
+  #ov-panel [style*="padding:28px 32px"],
+  #wiw-panel [style*="padding:28px 32px"]{
+    padding:20px 16px!important;
+  }
+  .controls{
+    height:auto;
+    min-height:52px;
+    gap:8px;
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));
+    flex-wrap:nowrap;
+  }
+  .nbtn{padding:10px 12px;font-size:12px;min-height:40px;gap:5px}
+  .nbtn .btn-label{display:none}
+  .ctr{font-size:11px;min-width:48px}
+  .prog{width:72px}
+  .dots{
+    gap:4px;
+    max-width:120px;
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .dots::-webkit-scrollbar{display:none}
+  .dot{flex-shrink:0}
+}
 </style>
 </head>
 <body>
 <div class="shell">
   <div class="flow-tabbar"><div class="tab-group"><div class="tab-group-label">About BookCover</div><div class="tab-group-tabs"><button class="flow-tab active" id="ftab-ov" onclick="switchToOverview()"><span class="tab-n" style="background:#E6F4EF;border-color:#0F7B5C;color:#0F7B5C">&#9432;</span>Overview</button><button class="flow-tab" id="ftab-wiw" onclick="switchToWhyItWorks()"><span class="tab-n" style="background:#E6F4EF;border-color:#1d9e75;color:#1d9e75;font-weight:800">?</span>Why it works</button></div></div><div class="tab-group"><div class="tab-group-label">Agent's Daily Workflow</div><div class="tab-group-tabs"><button class="flow-tab" id="ftab-0" data-fidx="0" onclick="switchFlow(0)"><span class="tab-n" style="background:#EDE9FE;border:1px solid #7C3AED;color:#7C3AED;font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px">1</span>Dashboard</button><button class="flow-tab" id="ftab-1" data-fidx="1" onclick="switchFlow(1)"><span class="tab-n" style="background:#EDE9FE;border:1px solid #7C3AED;color:#7C3AED;font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px">2</span>Campaigns</button><button class="flow-tab" id="ftab-2" data-fidx="2" onclick="switchFlow(2)"><span class="tab-n" style="background:#EDE9FE;border:1px solid #7C3AED;color:#7C3AED;font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px">3</span>At Risk</button></div></div><div class="tab-group"><div class="tab-group-label">Additional Features</div><div class="tab-group-tabs"><button class="flow-tab" id="ftab-3" data-fidx="3" onclick="switchFlow(3)"><span class="tab-n" style="">4</span>Member Details</button><button class="flow-tab" id="ftab-4" data-fidx="4" onclick="switchFlow(4)"><span class="tab-n" style="">5</span>Reporting</button><button class="flow-tab" id="ftab-5" data-fidx="5" onclick="switchFlow(5)"><span class="tab-n" style="">6</span>Surveys</button></div></div></div>
   <div class="main">
-    <aside class="sidebar">
-      <div class="uc" id="uc"></div>
-      <div class="ph" id="ph"></div>
-      <h2 class="st" id="st"></h2>
-      <div class="ss" id="ss"></div>
-      <div class="sdiv"></div>
-      <p class="sb" id="sb"></p>
-      <ul class="buls" id="buls"></ul>
-      <div class="snote">Use ← → arrow keys or the buttons below to navigate.</div>
+    <aside class="sidebar" id="sidebar">
+      <button type="button" class="guide-toggle" id="guide-toggle" aria-expanded="false" aria-controls="sidebar-body">
+        <span class="guide-toggle-summary" id="guide-toggle-summary"><strong>Presenter guide</strong> · tap to expand</span>
+        <span class="guide-toggle-chevron" aria-hidden="true">▾</span>
+      </button>
+      <div class="sidebar-body" id="sidebar-body">
+        <div class="uc" id="uc"></div>
+        <div class="ph" id="ph"></div>
+        <h2 class="st" id="st"></h2>
+        <div class="ss" id="ss"></div>
+        <div class="sdiv"></div>
+        <p class="sb" id="sb"></p>
+        <ul class="buls" id="buls"></ul>
+        <div class="snote">Use ← → arrow keys or the buttons below to navigate.</div>
+        <div class="snote-mobile">Swipe sideways on the screen if needed · use Prev / Next below to step through</div>
+      </div>
     </aside>
-    <div class="device-area">
+    <div class="device-area" id="device-area">
+      <p class="mockup-hint" id="mockup-hint">Swipe sideways to explore the full screen →</p>
 
 <div id="ov-panel" style="display:none;flex:1;overflow-y:auto;flex-direction:column;
   align-items:center;padding:28px 36px;background:linear-gradient(160deg,#F8FAFC,#EBF2F9)">
@@ -193,8 +385,8 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
     </div>
   </div>
   <div class="controls">
-    <button class="nbtn" id="prev" onclick="nav(-1)">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>Previous
+    <button class="nbtn" id="prev" onclick="nav(-1)" aria-label="Previous">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg><span class="btn-label">Previous</span>
     </button>
     <div style="display:flex;align-items:center;gap:12px">
       <div class="dots" id="dots"></div>
@@ -203,8 +395,8 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
         <div class="prog"><div class="fill" id="fill"></div></div>
       </div>
     </div>
-    <button class="nbtn primary" id="next" onclick="nav(1)">
-      Next<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    <button class="nbtn primary" id="next" onclick="nav(1)" aria-label="Next">
+      <span class="btn-label">Next</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   </div>
 </div>
@@ -216,6 +408,33 @@ const FLOWS   = [{"id": "daily-dash", "label": "Daily \u00b7 Dashboard", "start"
 let activeFlow = 0;
 let cur = 0;
 let isOverview = true;
+
+function setDeviceMode(mode) {
+  const area = document.getElementById('device-area');
+  if (area) area.classList.toggle('has-mockup', mode === 'mockup');
+}
+
+function updateGuideSummary() {
+  const summary = document.getElementById('guide-toggle-summary');
+  if (!summary) return;
+  const uc = document.getElementById('uc');
+  const st = document.getElementById('st');
+  const ucText = uc ? uc.textContent : '';
+  const stText = st ? st.textContent : '';
+  summary.innerHTML =
+    '<strong>' + (stText || 'Presenter guide') + '</strong>' +
+    (ucText ? ' · ' + ucText : ' · tap to expand');
+}
+
+(function initMobileGuide() {
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('guide-toggle');
+  if (!sidebar || !toggle) return;
+  toggle.addEventListener('click', function() {
+    const open = sidebar.classList.toggle('guide-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
 const vis = FLOWS.map(() => new Set([0]));
 
 function flowStart(f){ return FLOWS[f].start; }
@@ -223,6 +442,7 @@ function flowCur(){ return flowStart(activeFlow) + cur; }
 
 function switchToOverview() {
   isOverview = true;
+  setDeviceMode('overview');
   document.querySelectorAll('.flow-tab').forEach(b => b.classList.remove('active'));
   const ovBtn = document.getElementById('ftab-ov');
   if (ovBtn) ovBtn.classList.add('active');
@@ -247,11 +467,13 @@ function switchToOverview() {
     'Tab 4: Member Details (4 screens) \u2014 score factors, comms timeline, outreach logging',
     'Tab 5: Reporting & Sharing (4 screens) \u2014 analytics, AEP Stay vs Switch, automated delivery',
   ].map(b => '<li class="bul"><div class="bd"></div>' + b + '</li>').join('');
+  updateGuideSummary();
 }
 
 function switchFlow(f) {
   if (f === activeFlow && !isOverview) return;
   isOverview = false;
+  setDeviceMode('mockup');
   const panel = document.getElementById('ov-panel');
   if (panel) panel.style.display = 'none';
   const scr = document.getElementById('screen');
@@ -280,6 +502,7 @@ function render(idx, dir) {
   document.getElementById('sb').textContent = s.explanation;
   document.getElementById('buls').innerHTML = s.bullets.map(b =>
     '<li class="bul"><div class="bd"></div>' + b + '</li>').join('');
+  updateGuideSummary();
 
   // Update progress controls
   const total = FLOWS[activeFlow].count;
@@ -365,6 +588,7 @@ function gotoScreen(globalIdx) {
   // Define switchToWhyItWorks
   window.switchToWhyItWorks = function() {
     window.isOverview = false;
+    if (typeof setDeviceMode === 'function') setDeviceMode('wiw');
     // Hide other views
     const op = document.getElementById('ov-panel');
     if (op) op.style.display = 'none';
@@ -402,6 +626,7 @@ function gotoScreen(globalIdx) {
         'What this looks like to the member \u2014 specific outcomes from the member\u2019s seat'
       ].map(function(b) { return '<li class="bul"><div class="bd"></div>' + b + '</li>'; }).join('');
     }
+    if (typeof updateGuideSummary === 'function') updateGuideSummary();
   };
 })();
 </script>

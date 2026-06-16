@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BookCover · Agent Portal Demo · v57</title>
+<title>BookCover · Agent Portal Demo · v58</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -87,10 +87,13 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
   html,body{touch-action:manipulation}
   .shell{width:100%;min-height:0}
   .flow-tabbar{
-    padding:0 4px 0 8px;
+    padding:0 28px 0 8px;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
     scroll-snap-type:x proximity;
+    position:relative;
+    mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+    -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
   }
   .flow-tabbar::-webkit-scrollbar{display:none}
   .tab-group-label{display:none}
@@ -185,7 +188,8 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
     flex:1;
     min-height:0;
     padding:0;
-    overflow:auto;
+    overflow-x:hidden;
+    overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     align-items:stretch;
     flex-direction:column;
@@ -200,15 +204,86 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
     font-weight:600;
     letter-spacing:.2px;
   }
-  .device-area.has-mockup .mockup-hint{display:block}
+  .device-area.has-mockup .mockup-hint{display:none}
   #screen{
     width:100%;
-    max-width:none;
-    min-width:680px;
-    padding:4px 8px 10px;
+    max-width:100%;
+    min-width:0;
+    padding:6px 10px 12px;
     flex-shrink:0;
   }
-  #screen>div{border-radius:8px!important;box-shadow:0 4px 24px rgba(0,0,0,.12)!important}
+  #screen .mock-frame{
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+    border-radius:10px!important;
+    box-shadow:0 2px 16px rgba(0,0,0,.1)!important;
+  }
+  #screen .mock-nav{display:none!important}
+  #screen .mock-body{
+    flex-direction:column!important;
+    overflow:visible!important;
+    min-height:0!important;
+  }
+  #screen .mock-main{
+    flex:1 1 auto!important;
+    width:100%!important;
+    min-width:0!important;
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    -webkit-overflow-scrolling:touch;
+    padding:12px 10px!important;
+  }
+  #screen [style*="grid-template-columns:repeat(4,1fr)"],
+  #screen [style*="grid-template-columns:repeat(5,1fr)"]{
+    grid-template-columns:1fr 1fr!important;
+    gap:10px!important;
+  }
+  #screen [style*="grid-template-columns:repeat(3,1fr)"],
+  #screen [style*="grid-template-columns:1fr 1fr"],
+  #screen [style*="grid-template-columns:1fr 280px"],
+  #screen [style*="grid-template-columns:1fr 270px"],
+  #screen [style*="grid-template-columns:1fr 260px"],
+  #screen [style*="grid-template-columns:1fr 300px"],
+  #screen [style*="grid-template-columns:200px 1fr"]{
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  #screen table{
+    display:block;
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  #screen table thead,
+  #screen table tbody{display:table;width:100%;min-width:520px}
+  #screen [style*="min-width:230px"]{min-width:0!important;flex:1 1 140px!important}
+  #screen .mock-main [style*="white-space:nowrap"]{white-space:normal!important}
+  #screen [style*="flex:0 0 90px"],
+  #screen [style*="flex:0 0 110px"],
+  #screen [style*="flex:0 0 170px"],
+  #screen [style*="flex:0 0 160px"],
+  #screen [style*="flex:0 0 120px"]{
+    flex:0 0 auto!important;
+    min-width:72px;
+    font-size:9px!important;
+  }
+  #screen [style*="display:flex"][style*="border-bottom:1px solid #E2E8F0"][style*="padding:10px"]{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    min-width:0;
+  }
+  #screen [style*="font-size:22px"],
+  #screen [style*="font-size:24px"]{font-size:18px!important}
+  #screen [style*="padding:20px 24px"],
+  #screen [style*="padding:18px 22px"]{padding:14px 12px!important}
+  #screen .mock-frame > div[style*="background:#2D2D2D"]{padding:6px 10px!important}
+  #screen .mock-frame > div[style*="background:#1d9e75"],
+  #screen .mock-frame > div[style*="background:#0F7B5C"]{padding:8px 12px!important}
+  #screen .mock-frame button[style*="Take Action"]{
+    width:100%!important;
+    justify-content:center!important;
+  }
   #ov-panel,#wiw-panel{padding:16px 12px!important}
   #ov-panel [style*="grid-template-columns:1fr 1fr"],
   #wiw-panel [style*="grid-template-columns:1fr 1fr"],
@@ -282,11 +357,11 @@ aside.sidebar::-webkit-scrollbar-thumb:hover{background:#94A3B8}
         <p class="sb" id="sb"></p>
         <ul class="buls" id="buls"></ul>
         <div class="snote">Use ← → arrow keys or the buttons below to navigate.</div>
-        <div class="snote-mobile">Swipe sideways on the screen if needed · use Prev / Next below to step through</div>
+        <div class="snote-mobile">Use Prev / Next below to step through screens</div>
       </div>
     </aside>
     <div class="device-area" id="device-area">
-      <p class="mockup-hint" id="mockup-hint">Swipe sideways to explore the full screen →</p>
+      <p class="mockup-hint" id="mockup-hint">Scroll down to explore the full screen</p>
 
 <div id="ov-panel" style="display:none;flex:1;overflow-y:auto;flex-direction:column;
   align-items:center;padding:28px 36px;background:linear-gradient(160deg,#F8FAFC,#EBF2F9)">
@@ -499,6 +574,23 @@ function switchFlow(f, startIdx) {
   render(startIdx, 1);
 }
 
+function prepareMockHtml(h) {
+  return h
+    .replace(/^<div style="/, '<div class="mock-frame" style="')
+    .replace(
+      '<div style="flex:1;display:flex;overflow:hidden">',
+      '<div class="mock-body" style="flex:1;display:flex;overflow:hidden">'
+    )
+    .replace(
+      '<div style="width:160px;flex-shrink:0;background:#FFFFFF;border-right:1px solid #E2E8F0;display:flex;flex-direction:column;min-height:0">',
+      '<div class="mock-nav" style="width:160px;flex-shrink:0;background:#FFFFFF;border-right:1px solid #E2E8F0;display:flex;flex-direction:column;min-height:0">'
+    )
+    .replace(
+      '<div style="flex:1;overflow-y:auto;background:#F8FAFC">',
+      '<div class="mock-main" style="flex:1;overflow-y:auto;background:#F8FAFC">'
+    );
+}
+
 function render(idx, dir) {
   cur = idx;
   vis[activeFlow].add(cur);
@@ -534,7 +626,7 @@ function render(idx, dir) {
 
   // Render screen mockup
   const scr = document.getElementById('screen');
-  scr.innerHTML = h;
+  scr.innerHTML = prepareMockHtml(h);
 }
 
 function nav(d) {

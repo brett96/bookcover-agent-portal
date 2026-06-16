@@ -370,16 +370,28 @@ document.addEventListener("keydown", function (e) {
 
 async function initDemo() {
   initMobileGuide();
-  const [screensRes, flowsRes] = await Promise.all([
-    fetch("data/screens.json"),
-    fetch("data/flows.json"),
-  ]);
-  SCREENS = await screensRes.json();
-  FLOWS = await flowsRes.json();
-  vis = FLOWS.map(function () {
-    return new Set([0]);
-  });
-  switchToOverview();
+  try {
+    const [screensRes, flowsRes] = await Promise.all([
+      fetch("data/screens.json"),
+      fetch("data/flows.json"),
+    ]);
+    if (!screensRes.ok || !flowsRes.ok) {
+      throw new Error("Failed to load demo metadata");
+    }
+    SCREENS = await screensRes.json();
+    FLOWS = await flowsRes.json();
+    vis = FLOWS.map(function () {
+      return new Set([0]);
+    });
+    switchToOverview();
+  } catch (err) {
+    console.error(err);
+    const area = document.getElementById("device-area");
+    if (area) {
+      area.innerHTML =
+        '<p class="mock-loading">Demo failed to load. Please refresh the page.</p>';
+    }
+  }
 }
 
 initDemo();

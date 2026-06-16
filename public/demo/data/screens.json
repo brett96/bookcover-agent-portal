@@ -1,0 +1,506 @@
+[
+  {
+    "useCase": "D1",
+    "phase": "Daily Workflow · Dashboard",
+    "title": "Morning Dashboard Review",
+    "subtitle": "5–10 min · All critical metrics, pending approvals, and at-risk actions",
+    "explanation": "The agent starts each day with a single dashboard view. Pending campaign approvals appear in the top widget. Below, the At-Risk Members — Next Best Action panel shows system-assigned recommended actions for the 1,847 members in the Red zone: the number of members per NBA category, the 7-day increase in each category, and a direct Take Action link into the At-Risk workflow.",
+    "bullets": [
+      "KPI strip: avg retention score 72.3 (↑2.1 pts), 1,847 at-risk members, 3 pending approvals",
+      "Needs Your Approval surfaces 3 pending campaigns — clicking Review enters the approval flow",
+      "At-Risk Members panel: 4 NBA categories with member counts and 7-day trend (all increasing)",
+      "Take Action buttons navigate directly to the Daily · At Risk tab filtered by that NBA category",
+      "All counts show net increases this week — more members are being flagged for outreach"
+    ]
+  },
+  {
+    "useCase": "CA-1",
+    "phase": "Campaign Workflow · Step 1 of 8",
+    "title": "Campaign List — All Active Campaigns",
+    "subtitle": "System-generated campaigns across all types and channels",
+    "explanation": "The full campaign list gives the agent visibility into every retention campaign — from always-on sequences to seasonal newsletters and Facebook ads. Every campaign is pre-built by the system. The agent reviews and approves; the system handles targeting, batch scheduling, and delivery.",
+    "bullets": [
+      "7 campaign types: Welcome, Bi-weekly Reminder, Quarterly, Carrier News, Personalized, AEP Stay vs Switch, Risk",
+      "Facebook Ads integrate via a 3rd-party platform — the agent sees recommendations and performance tracking here",
+      "Status badges: Pending Approval (amber, action needed), Scheduled (green), Active, Sent, Draft",
+      "Open Rate column tracks post-delivery engagement — feeds back into member retention scores"
+    ],
+    "url": "campaigns"
+  },
+  {
+    "useCase": "CA-2",
+    "phase": "Campaign Workflow · Step 2 of 8",
+    "title": "Today's Priority Queue",
+    "subtitle": "3 campaigns ready for approval today · Q2 Newsletter is first priority",
+    "explanation": "The agent's daily campaign view shows only what needs attention today — not the full campaign history. Two priority campaigns (Q2 Newsletter and Rx Savings) are flagged at the top. The Facebook Q2 campaign is in review via the Meta integration. Reviewing and approving both priority campaigns typically takes 10–15 minutes.",
+    "bullets": [
+      "Q2 Newsletter (8,432 members) and Rx Savings Alert (1,847 members) are marked Priority — approval needed before the scheduled send date",
+      "Facebook Q2 is in external review via Meta Ads integration — no agent approval needed today",
+      "System note confirms all 3 were generated overnight — agent reviews, system handles targeting",
+      "Campaigns are ordered by urgency, not alphabetically",
+      "Clicking Review opens the full one-page approval flow for that campaign"
+    ]
+  },
+  {
+    "useCase": "CA-3",
+    "phase": "Campaign Workflow · Step 3 of 8",
+    "title": "Campaign Detail — Batch Summary & Targeting",
+    "subtitle": "Q2 Newsletter · 8,432 members · 6-day anti-spam batch delivery",
+    "explanation": "Clicking Review opens the campaign detail page. The agent sees exactly who was selected (8,432 members based on plan, score, and opt-in status), the full batch delivery timeline (6 business days), and the campaign type and channel. No setup required — the system did the targeting work.",
+    "bullets": [
+      "Member selection is fully automatic — scoring algorithm determines eligibility, not the agent",
+      "Target segment breakdown: opt-in verified, score threshold applied, prior open history considered",
+      "6-day delivery window pre-calculated to stay within CAN-SPAM daily limits (1,405/day)",
+      "Facebook Companion Ad is linked — agent can approve both in one session for coordinated outreach"
+    ],
+    "url": "campaigns/review/q2-newsletter"
+  },
+  {
+    "useCase": "CA-4",
+    "phase": "Campaign Workflow · Step 4 of 8",
+    "title": "Email Preview — Review Before Approving",
+    "subtitle": "Friendly check-in · benefit highlights · CTA back to BookCover",
+    "explanation": "The Email Preview shows exactly what each member will see when this campaign sends. The new Q2 Newsletter is a friendly check-in from Sandra: a warm intro, an open invitation to call or email her with questions, two ways she can help (free plan benefits and lowering Rx costs), and a CTA back to BookCover where the member can explore their benefits. The signature includes Sandra's full name, role, phone, and email — so members can reach her directly through any channel they prefer.",
+    "bullets": [
+      "Personalized greeting with [First Name] mail-merge from the carrier roster",
+      "Warm intro paragraph — no urgency, no upsell, just a check-in",
+      "Open invitation: members can call or email Sandra with any plan or carrier questions",
+      "Two specific value props highlighted: free benefits + lowering Rx drug costs",
+      "Single CTA links back to BookCover (bookcover.com/benefits) for self-serve benefit exploration",
+      "Full signature block with role, phone, and direct email — multiple ways to reach Sandra"
+    ]
+  },
+  {
+    "useCase": "CA-5",
+    "phase": "Campaign Workflow · Step 5 of 8",
+    "title": "Edit Email Copy",
+    "subtitle": "Inline edits on Body Paragraph 1 · highlighted in yellow",
+    "explanation": "The Edit Email Copy screen lets Sandra tune the system's draft before approving. The same preview shown on the previous step is now editable — the agent can change subject, preview text, body paragraphs, and the CTA button text via the Edit Fields panel on the right. Body Paragraph 1 is highlighted in yellow to show what she just changed; the [Edited] tag appears inline so reviewers (and Sandra herself) can see exactly what's been modified. Discard Changes reverts; Save & Preview returns to the read-only preview with edits applied.",
+    "bullets": [
+      "Inline edit highlighting — yellow background + [Edited] tag on the modified paragraph",
+      "Right-side Edit Fields panel: Subject Line, Preview Text, Body Paragraph 1, CTA Button Text",
+      "Subject and CTA editable via single-line inputs; body paragraphs via larger text areas (mocked)",
+      "Discard Changes restores the system's original draft",
+      "Save & Preview returns to Step 4 (Email Preview) with the agent's edits applied"
+    ]
+  },
+  {
+    "useCase": "CA-6",
+    "phase": "Campaign Workflow · Step 6 of 8",
+    "title": "Adjust Delivery Settings",
+    "subtitle": "Batch timeline · Business-days schedule · Facebook companion",
+    "explanation": "The delivery settings panel lets the agent fine-tune the send schedule before approving. The first batch date can be shifted. Batch size is pre-calculated for CAN-SPAM compliance but can be reduced. The timeline visualization shows which days emails go out, with the exact count per day.",
+    "bullets": [
+      "First batch date is movable — agent can delay if timing conflicts with other outreach",
+      "Batch size calculated by system — agent can reduce but never exceed daily compliance limits",
+      "Business-days-only default keeps volume predictable and avoids weekend spam filter issues",
+      "Facebook companion campaign is linked — approving both runs coordinated email + social outreach"
+    ],
+    "url": "campaigns/review/q2-newsletter#schedule"
+  },
+  {
+    "useCase": "SC-1",
+    "phase": "Campaigns · Scheduled",
+    "title": "Scheduled Campaigns",
+    "subtitle": "All approved campaigns queued for delivery",
+    "explanation": "The Scheduled view is the destination for every campaign once it has been approved. Each row shows the campaign name, type, member count, send window, and current status (Scheduled = waiting in queue, Sending now = currently releasing batches). The agent lands here directly from the left nav, or arrives here automatically after approving a campaign from Awaiting Review. Clicking View opens the campaign's delivery detail.",
+    "bullets": [
+      "Reached from the left nav (Campaigns › Scheduled) or as the next step after approving",
+      "Lists every campaign with status Scheduled or Sending now — past sends live in Reports",
+      "Search, type, channel, and time-window filters narrow the list",
+      "Status pill: Scheduled (queued) or Sending now (releasing batches today)",
+      "Each row's View button opens the campaign's batch summary and delivery configuration"
+    ]
+  },
+  {
+    "useCase": "SC-2",
+    "phase": "Campaigns · Scheduled · Confirmation",
+    "title": "Scheduling Confirmed",
+    "subtitle": "Q2 Newsletter is now in the Scheduled queue · 1 campaign still in Awaiting Review",
+    "explanation": "The confirmation page closes the campaign workflow — it appears immediately after the agent approves a campaign. The newly scheduled campaign is highlighted at the top, and the rest of the Awaiting Review queue is shown below so the agent can decide whether to approve another or step away. From here, the campaign is visible in the Scheduled list alongside everything else queued for delivery.",
+    "bullets": [
+      "Auto-shown after a single-click approval — no separate save step",
+      "Highlights the just-scheduled campaign (first batch date, daily send rate, channels)",
+      "Shows remaining Awaiting Review items so the agent can chain approvals",
+      "Breadcrumb shows Campaigns › Scheduled › Confirmation — this page lives under Scheduled",
+      "Sandra K. can navigate to Scheduled from the left nav at any time to see the full queue"
+    ]
+  },
+  {
+    "useCase": "AR-1",
+    "phase": "At-Risk Workflow · Step 1 of 3",
+    "title": "NBA Member List",
+    "subtitle": "75 high-priority members · 47 Call Member · 28 Send Email",
+    "explanation": "The NBA Member List shows the highest-priority outreach the system surfaces for Sandra today — split by recommended channel. The Call Member queue (top) contains members who had a negative experience or reached out for assistance directly; these need a human voice fast, so phone is the recommended action. The Send Email queue (below) contains members who explicitly asked for email follow-up — they have an open question waiting in the portal, in a survey reply, or in response to an earlier outreach. Each section shows the top 5 by default and exposes a Show more control that reveals 5 additional rows in-place; the footer counter updates accordingly. Sorting differs by section: Call Member is by retention score (most critical first), Send Email is by request age (oldest open question first).",
+    "bullets": [
+      "Two NBA queues on one screen — Call Member (47) and Send Email (28)",
+      "Show more button per section reveals 5 additional hidden rows and updates the footer count",
+      "Call Member reasons: filed complaints, low CAHPS, repeat service calls, disputed claims, negative surveys",
+      "Send Email reasons: portal questions, survey reply asks, follow-up requests on outreach",
+      "Score pills color-coded by band: red <50, amber 50–69, green 70+",
+      "NBA pills color-coded by type: red Call Member, blue Send Email",
+      "Clicking any row (or View →) opens that member's NBA detail page"
+    ]
+  },
+  {
+    "useCase": "AR-2",
+    "phase": "At-Risk Workflow · Step 2 of 3",
+    "title": "Robert Kim — Member Details + Log Outreach",
+    "subtitle": "Score 38 · Low CAHPS · 3 open service issues · Voicemail logged",
+    "explanation": "v22 merged the old Member Detail and Log Outreach screens into a single view, since flipping between them broke the agent's context every time they wanted to log what just happened on the call. Now Sandra sees everything Robert is dealing with — his CAHPS score, the three open service issues, his pattern of inbound calls reaching out for help — and fills in the log on the same page. The data is also updated to match v21's NBA list framing: Robert isn't silent or disengaged, he's been actively reaching out (multiple inbound calls, a 2/5 CAHPS submission) and three of his issues remain unresolved. Phone outreach is the right next step because the issues need a human voice fast, before he disenrolls.",
+    "bullets": [
+      "NBA Recommendation card (top): scope of issue · Score 38 · ↓15 pts · Mar 28 · Low CAHPS · 3 open issues",
+      "Member info + Score Factors (left): baseline 64 with deductions for CAHPS, unresolved issues, engagement, utilization",
+      "Open Service Issues (left): Rx tier appeal (87d), Disputed ER claim #C-7841 (70d), CAHPS feedback 2/5",
+      "Recent Contact History (left): four member-initiated touchpoints — he's reaching out, not silent",
+      "Log Phone Contact form (right): outcome buttons (Voicemail Left selected), call notes, follow-up date",
+      "Score Impact (right): +3 points logged → projected 41 after tonight's scoring run",
+      "Save Contact Log → navigates to the Disposition Saved confirmation (Step 3 of 3)"
+    ]
+  },
+  {
+    "useCase": "AR-4",
+    "phase": "At-Risk Workflow · Step 3 of 3",
+    "title": "Disposition Saved — Voicemail Left",
+    "subtitle": "Contact logged · Score update queued · Follow-up May 26",
+    "explanation": "The disposition is saved. The green confirmation banner confirms the outcome, and the NBA Status panel shows what happens next: the engagement score gains +3 points in the next daily run, a follow-up reminder is queued for May 26, and the NBA category stays as 'Call Member' until a callback is received or a 2nd attempt is made. After 3 unsuccessful attempts, the NBA may switch to 'Send Survey'.",
+    "bullets": [
+      "Contact record is saved with date, outcome, agent attribution, and full call notes",
+      "NBA status panel shows current disposition and the automatic next steps in the sequence",
+      "Score update is queued — Robert's score will rise from 38 to ~41 in the next daily run",
+      "Follow-up reminder triggers an agent notification on May 26 — no manual tracking needed",
+      "After 3 unsuccessful call attempts, the NBA may auto-switch to 'Send Survey' category"
+    ]
+  },
+  {
+    "useCase": "UC-3",
+    "phase": "Member Management · Step 1 of 4",
+    "title": "Filter At-Risk Members",
+    "subtitle": "1,632 members · Score 0–50 · No outreach in past 30 days · Sorted by urgency",
+    "explanation": "The Member Directory is Sandra's working list — every member in the at-risk score range, filterable by plan, score, trend, engagement, and an outreach-recency rule (\"Hide members outreached in past [N] days\"). This last filter defaults to 30 days so Sandra doesn't waste time on members who were just reached and avoids over-contact fatigue. She can type a different number to tighten or loosen the window — 7 days during a campaign push, 60+ days for a quarterly sweep. 215 members are currently hidden, leaving 1,632 in view from the score-filtered cohort of 1,847.",
+    "bullets": [
+      "Filter bar: Search · Plan · Score (At Risk 0-50) · Trend · Engagement · NEW Hide members outreached in past 30 days",
+      "Active filters shown with brand-green border — Score and the outreach-recency filter are both active by default",
+      "Outreach-recency filter uses an inline numeric input — type any positive integer to change the window",
+      "Title chip: 'Filtered · 1,632 of 1,847 members' — shows the filter math at a glance",
+      "Sort banner: 'showing 5 of 1,632 members · 215 hidden (outreached in past 30 days)'",
+      "Member table columns: Member · Plan · Score · 30-day Change · Last Contact · Engagement · action",
+      "Each row's Last Contact date lets Sandra see why each remaining member surfaced",
+      "Pagination footer: 'Showing 1–5 of 1,632 members' · per-page selector · page nav",
+      "Page nav: ‹ Prev (disabled on page 1) · [1] · 2 · 3 · … · 327 · Next ›",
+      "Per-page dropdown defaults to 5 — agent can switch to 10/25/50/100 to scan more at once"
+    ],
+    "url": "members?filter=risk&sort=score-asc"
+  },
+  {
+    "useCase": "UC-3",
+    "phase": "Member Management · Step 2 of 4",
+    "title": "Member Detail — Score and Factors",
+    "subtitle": "Robert Kim · Score 38 · All factors negative",
+    "explanation": "The member detail page breaks down the retention score factor by factor. Robert Kim's score of 38 is explained precisely: no plan claims, no app registration, zero email engagement, and a high-competition geography. The agent understands exactly why the score is low and what to address in outreach.",
+    "bullets": [
+      "Score gauge: 38/100 in the critical Red zone — 15 points below the carrier baseline of 64",
+      "Plan Utilization: -8 (no claims filed — low plan dependency, easy to switch carriers)",
+      "App Engagement: -6 (never registered on BookCover — missed the full onboarding flow)",
+      "Email Engagement: -5 (zero opens across all 5 campaigns sent in 120 days)",
+      "Geography: -3 (high-competition zip code — competing MA plans actively marketing nearby)",
+      "Top tab strip — Score active · click Score / Communications / Log Contact to switch views"
+    ],
+    "url": "members/M-100441#detail"
+  },
+  {
+    "useCase": "UC-3",
+    "phase": "Member Management · Step 3 of 4",
+    "title": "Review Communications Timeline",
+    "subtitle": "5 campaigns · 0 opens · Complete non-engagement pattern",
+    "explanation": "The communications timeline shows every touchpoint with Robert Kim since enrollment. Five emails have been sent — none opened. The pattern of complete non-engagement over 120 days tells the agent that automated email is not working for this member. Personal phone outreach is the recommended next action.",
+    "bullets": [
+      "5 campaigns sent Jan–Apr 2026: Welcome, two Reminders, Newsletter, Personalized Rx Savings",
+      "0 opens, 0 clicks — member may have invalid email, unsubscribed silently, or is disengaged",
+      "No inbound contact of any kind — no calls, no app sessions, no portal visits",
+      "Outreach Recommended flag appears automatically when no engagement is detected in 90+ days",
+      "Top tab strip — Communications active · click Score / Communications / Log Contact to switch views"
+    ],
+    "url": "members/M-100441#timeline"
+  },
+  {
+    "useCase": "UC-3",
+    "phase": "Member Management · Step 4 of 4",
+    "title": "Log Outreach and Set Reminder",
+    "subtitle": "Today's voicemail being logged · 3 prior attempts visible · Score +3 projected",
+    "explanation": "Log Contact lets Sandra record what just happened on a call (or email, or letter) and see the full audit trail of every prior outreach attempt to this member in one place. Today's entry — Apr 15 voicemail — is being composed at the top. Below the form, the Contact History card shows the 3 prior attempts: two phone calls that didn't reach him and one personalized email that went unopened. The history makes it immediately clear that Robert is a hard-to-reach member, and that today's voicemail is the 4th consecutive unanswered attempt — useful context when deciding whether to keep trying phone, switch channels, or refer to clinical.",
+    "bullets": [
+      "Top tab strip — Log Contact active · click Score / Communications to switch views",
+      "Top section: Log Phone Contact form (Date, Method, Duration, Outcome, Notes, Save)",
+      "Right column: Set Follow-up Reminder · Score Impact panel (+3 → projected 41)",
+      "NEW: Contact History card lists 3 prior outreach attempts in chronological order",
+      "Each entry: channel icon · method · outcome chip · date · notes excerpt · agent · follow-up status",
+      "Outcome chips red-tinted for unsuccessful attempts (no answer, not opened), neutral otherwise",
+      "Footer makes it explicit: 'No successful contact yet — today is the 4th attempt'"
+    ],
+    "url": "members/M-100441#notes"
+  },
+  {
+    "useCase": "RP-1",
+    "phase": "Reporting · All Reports",
+    "title": "Retention Metrics — All Reports",
+    "subtitle": "4 retention reports · Period filter: Past 30 days (default)",
+    "explanation": "The All Reports landing is now framed as 'Retention Metrics' — the header KPIs and the report list both reflect retention performance over a configurable time window. The new Period dropdown next to Share Report defaults to Past 30 days and lets the agent switch to 7-, 60-, 90-, or 120-day windows, or set a custom date range. KPI trend labels reflect the active period (e.g., '↑ 3.2% vs prior 30 days'). The list of report types below the KPIs is unchanged — five reports the agent can drill into or share.",
+    "bullets": [
+      "Title 'Retention Metrics' replaces 'Retention Reporting' — sharper framing on what the page shows",
+      "Subheading removed — its info ('5 report types…') was decorative, not navigational",
+      "Period filter (📅 dropdown): Past 7 / 30 / 60 / 90 / 120 days · Custom date range — default Past 30 days",
+      "Share Report button stays on the right next to the new filter",
+      "KPI cards reordered: At-Risk Recov. + 12-mo Retention LEFT (static) · Email Open Rate + Score Improve RIGHT (under Period filter)",
+      "KPI trend labels updated: 'vs prior 30 days' · 'Past 30 days average' — aligned with default",
+      "Report list reduced to 4: Engagement Tracking · Retention Score · AEP Stay vs Switch · Score vs Engagement",
+      "Campaign Performance consolidated into Engagement Tracking (v33) — no longer a standalone report",
+      "Report cards now grouped into two subsections — 'On-demand reports' (Engagement Tracking) and 'Annual reports' (Retention Score, Score vs Engagement, AEP Stay vs Switch)",
+      "Annual section order matches the Annual Reports page: Retention Score → Score vs Engagement → AEP Stay vs Switch (cadence-dependency order)",
+      "NEW: 'Monthly reports' section between On-demand and Annual — currently holds the Monthly IFP Transition Report"
+    ]
+  },
+  {
+    "useCase": "RP-2",
+    "phase": "Reporting · All Reports",
+    "title": "Engagement Tracking",
+    "subtitle": "Open rates, clicks, and engagement by channel and campaign · Period filter: Past 30 days",
+    "explanation": "Engagement Tracking now has a Period filter matching the one on All Reports. Defaulting to Past 30 days, the agent can switch to 7-, 60-, 90-, or 120-day windows or set a custom range — the metrics and engagement trend both respect the selection. The trend chart now shows realistic seasonality: engagement spikes in January (Q1 newsletter + new-year context), drops through Feb-Mar between campaigns, rebounds in April with the Q2 send, drops again, then ramps back up in July when Q3 launches. This pattern is the actual story underneath the averages above, and it's why per-campaign breakdown is useful — quarterly sends drive the peaks. The By-campaign table now shows each campaign's send date, so the rates tie to the calendar — Sandra can see at a glance that the Q2 Check-in (Apr 8) drove the trend chart's April peak, that the Mid-Quarter Plan Tips just went out on May 20 (which is why its rates show '—'), and that Welcome and Rx Refill are continuous campaigns rather than discrete sends. The table now follows a consistent rule: any campaign that's been sent (or is actively sending, like Welcome and Rx Refill) shows real open and click rates. Anything not yet sent shows 'Pending' with '—' rates. Mid-Quarter Plan Tips is the upcoming Q2 mid-quarter send — Sandra can see at a glance that it's queued but hasn't gone out yet. Rx Refill, being personalized and timely, hits 62.4% open / 28.6% click — far above the quarterly broadcast averages because the content is immediately relevant to each recipient. The KPI compare labels are now 'vs prior year' instead of the static 'vs Q1', which paired badly with the new Period dropdown — when the agent picks 'Past 7 days', comparing to all of Q1 makes no sense. Year-over-year is the durable baseline. The By-channel table also got Facebook a proper click-through metric (2.3%) — previously the row showed '2.3% (CTR)' in the engagement column with '—' in CTR, which was a workaround we no longer need. By-campaign now has an Actions column with a View button on every row — Sandra can jump straight from the engagement report to any campaign's detail page without navigating back to the Campaigns hub. By-channel adds raw-count context (Sent / Views / Clicks) so the agent can see absolute volume alongside the relative rates: Email carries the bulk of the work (45k sent, 14k views, 5.7k clicks), SMS punches well above its weight on engagement rate but is a small-volume channel, and Facebook reaches 13k people but converts low — useful for awareness, weak for action.",
+    "bullets": [
+      "NEW: Period filter (📅 dropdown) next to Share Report — Past 7/30/60/90/120 days, Custom range",
+      "Subtitle simplified — filter declares the period (no more static 'Last 7 months')",
+      "Trend chart redesigned for seasonality: Jan/Apr/Jul peaks at quarterly campaigns",
+      "Mid-quarter troughs (Mar, Jun) show how engagement decays between sends",
+      "Open rate (green solid) and click rate (blue dashed) move together — same campaigns drive both",
+      "By-channel table unchanged · By-campaign section (added in v33) unchanged",
+      "NEW: 'Send date' column on By-campaign table — shows when each campaign actually went out, anchoring the open/click rates to the calendar",
+      "RULE: Sent campaigns show rates · Pending campaigns show 'Pending' + '—' for rates",
+      "Mid-Quarter Plan Tips is upcoming → 'Pending' (italic gray) + '—' rates",
+      "Rx Refill Reminder is actively sending → 62.4% open · 28.6% click (high relevance personalized trigger)",
+      "RELABEL: All 'vs Q1' compares are now 'vs prior year' (5 places) — true YoY baseline that holds up regardless of period filter",
+      "Facebook row cleaned up: 4.7% engagement (reactions/shares) + 2.3% click-through — previously had CTR mis-stuffed into the engagement column",
+      "NEW: 'View' action button on every by-campaign row — opens that campaign's detail page (→ gotoScreen 3)",
+      "NEW: By-channel table gains raw-count columns — Sent, Views, Clicks — sitting alongside the existing rate columns",
+      "Raw counts approximately sum to the KPIs at the top: 16,868 total views (KPI 16,842) · 6,285 total clicks (KPI 6,318)"
+    ]
+  },
+  {
+    "useCase": "RP-3",
+    "phase": "Reporting · All Reports",
+    "title": "Retention Score Report",
+    "subtitle": "Score distribution, monthly trend, and cohort analysis",
+    "explanation": "The Retention Score Report shows where members fall across the 0–100 retention scoring spectrum, how the average is trending month over month, and how different cohorts (tenure groups, app inactivity) are performing. The histogram and cohort table together help the agent see whether retention work is moving the bell curve to the right.",
+    "bullets": [
+      "Distribution histogram: 5 score bands from 0–20 (red) to 81–100 (deep green)",
+      "Trend line: monthly average score over the year",
+      "Cohort table: tenure 0–12 mo, 1–3 yr, 3+ yr, plus 'no app activity 90+ days'",
+      "Headline KPIs include score lift YTD and % above 70",
+      "Breadcrumb: Reporting › All Reports › Retention Score Report"
+    ]
+  },
+  {
+    "title": "AEP Stay vs Switch Analysis",
+    "subtitle": "9,102 members · MA + Dual · 2-way Stay/Switch recommendations with full member list",
+    "explanation": "Annual report that runs after each AEP cycle, classifying every MA + Dual SNP member as a Stay or Switch recommendation. Top KPIs show the 62/38 split; the donut visualises the same breakdown with aggregate projected savings ($4.3M for the 3,452 switch-recommended members). The member table sits below, sorted by Annual Savings desc so Sandra sees the biggest retention opportunities first — Switch members lead the list with their $-amount savings, followed by Stay members with em-dash savings.",
+    "bullets": [
+      "4 KPI cards: Members Analyzed (9,102 MA + Dual) · Stay (5,650/62.1%) · Switch (3,452/37.9%) · Avg Annual Savings ($1,247)",
+      "2-segment donut breakdown (green Stay / amber Switch) with aggregate $4.3M projected switch savings",
+      "Filter checkboxes: All / Stay / Switch with live counts · hint: 'Sorted by annual savings, highest first'",
+      "7-column member table: Member# + Name · Current Plan · Recommendation pill · Recommended Plan · Top Driver · Annual Savings · Details",
+      "20 sample rows: 8 Switch members at the top (sorted by savings $1,560 → $288), 12 Stay members alphabetically below (— savings)",
+      "Removed columns from prior version: Confidence and Outreach Action (Confidence consolidated into the model itself; Outreach Action moved into the campaign workflow)",
+      "Pagination footer: Showing 1–20 of 9,102 · Download CSV · per-page selector · Prev/Next"
+    ]
+  },
+  {
+    "useCase": "RP-5",
+    "phase": "Reporting · All Reports",
+    "title": "Score vs Engagement",
+    "subtitle": "Correlation analysis · r = 0.72 across 12,450 members",
+    "explanation": "Score vs Engagement is the demo's most technical report — a scatter plot of every active member with engagement events on the X axis and retention score on the Y. The headline number (r = 0.72) tells the agent that engagement and score are strongly correlated, but the page also explicitly notes that correlation isn't causation, and points to the bottom-left quadrant (low engagement + low score, 412 members) as the highest-leverage outreach target.",
+    "bullets": [
+      "Pearson correlation, R², sample size, and confidence level as headline KPIs",
+      "Color-coded scatter: green (high engagement + high score), red (low/low), gray (mixed)",
+      "Three insight callouts: predictive value, causation caveat, recommended action",
+      "Action callout cross-references the NBA Recommendations queue (where the 412 land)",
+      "Breadcrumb: Reporting › All Reports › Score vs Engagement"
+    ]
+  },
+  {
+    "useCase": "RP-SH",
+    "phase": "Reporting · Sharing",
+    "title": "Sharing",
+    "subtitle": "One row per report · recipients, cadence, last/next send, active toggle",
+    "explanation": "Sharing is the management surface for everything outbound — who gets which report, how often, and whether the share is currently active. v19 collapsed Sharing into Reporting as a single sub-item (no further sub-items below it), since sharing IS a reporting concern. Every report in the system is listed exactly once, so it's immediately obvious which reports are being shared and which haven't been set up yet. The Active checkbox pauses a share without discarding its recipients or cadence — toggle it back on and delivery resumes on the same schedule. Edit jumps into the Recurring Schedule editor for that row's report; unconfigured reports (like Score vs Engagement here) show a Set up button instead. One-off sends still happen through the Compose Email link in the brief copy.",
+    "bullets": [
+      "5 rows — one per report — including the unconfigured Score vs Engagement",
+      "Columns: Report · Recipients · Cadence · Last sent · Next send · Active · Edit",
+      "Active checkbox is interactive: unchecking dims the row to indicate paused state",
+      "Score vs Engagement row shows 'Not configured' + 'Set up →' button (disabled checkbox)",
+      "Compose Email + Recurring Schedule editors are reachable only contextually — they're no longer in the left nav",
+      "Breadcrumb: Reporting › Sharing"
+    ]
+  },
+  {
+    "useCase": "RP-SH-1",
+    "phase": "Reporting · Sharing · Compose Email",
+    "title": "Compose Report Email",
+    "subtitle": "One-off report email · editable body · portal link · PHI protected",
+    "explanation": "Compose Email is the one-off sharing surface — the agent picks a report (or arrives here from a report's Share button), edits the body, adds recipients, and sends. The original report's link is included so the recipient can view the live data in BookCover. PHI is stripped from the body automatically. v19 removed Compose Email from the left nav — it's reachable now only via the Compose Email link on the Sharing landing or via a Share Report button on any report detail page. From here, the agent can optionally jump to Recurring Schedule to turn this one-off into an automated subscription.",
+    "bullets": [
+      "Recipient picker — internal team only by default (HIPAA boundary)",
+      "Editable subject and body; the report itself attaches as a portal link",
+      "PHI flag warns if any member-identifying detail slips into the body",
+      "Send Once button or Set Up Recurring → which navigates to Recurring Schedule",
+      "Breadcrumb: Sharing › Compose Email"
+    ],
+    "url": "reporting/aep-stay-vs-switch-2026/share"
+  },
+  {
+    "useCase": "RP-SH-2",
+    "phase": "Reporting · Sharing · Recurring Schedule",
+    "title": "Set Recurring Report Schedule",
+    "subtitle": "Configure automated report delivery · weekly / monthly / quarterly",
+    "explanation": "Recurring Schedule turns a one-off share into an automated subscription. The agent sets frequency (weekly / monthly / quarterly), start date, recipients, and which report to deliver. Once saved, the subscription appears on the Sharing landing — that page is the canonical list of every recurring share, with one row per report. v19 removed Recurring Schedule from the left nav too — it's reachable only via Edit (on any configured row), Set up (on an unconfigured row), or the New Recurring Share button on the Sharing landing.",
+    "bullets": [
+      "Frequency: weekly, monthly, quarterly (or custom intervals during AEP)",
+      "Start date and end date — end date optional (open-ended subscriptions allowed)",
+      "Multiple recipients per subscription; reuse recipient lists across subscriptions",
+      "After saving, the new subscription appears in Reporting › Scheduling",
+      "Breadcrumb: Sharing › Recurring Schedule"
+    ],
+    "url": "reporting/schedule"
+  },
+  {
+    "title": "Periodic Reports",
+    "subtitle": "All scheduled cadence reports — monthly and annual",
+    "explanation": "Single landing for every recurring report. Monthly reporting appears first — the IFP Transition report runs the 1st of each month, finding members who are aging out of IFP into Medicare. Annual reporting follows, grouped by calendar year: Retention Score (January), Score vs Engagement (January), and AEP Stay vs Switch Analysis (October). 2027 reports are still pending. Replaces the previous separate 'Annual Reports' and 'Monthly IFP Transition' sub-nav items — one entry point for all cadences.",
+    "bullets": [
+      "Page title: 'Periodic Reports' · subtitle covers monthly and annual cadences",
+      "MONTHLY REPORTING section: Monthly IFP — Medicare Transition Report · May 1, 2026 · 1,240 members · View",
+      "ANNUAL REPORTING section: 2026 card (Retention Score Jan 15, Score vs Engagement Jan 17, AEP Stay vs Switch Oct 8 - all 12,450 members)",
+      "ANNUAL REPORTING section: 2027 card (all 3 reports show 'Pending' italic gray)",
+      "Sidenav simplification: 'Annual Reports' + 'Monthly IFP Transition' → single 'Periodic Reports' entry",
+      "Six off-nav screens (18, 19, 20, 25, 26) now all highlight 'Periodic Reports' parent"
+    ]
+  },
+  {
+    "title": "Monthly IFP — Medicare Transition Report",
+    "subtitle": "Members transitioning IFP → Medicare in the next 60 days · 1,240 members · 41% high fit",
+    "explanation": "BookCover identifies every Individual-plan (IFP) member who's aging into Medicare in the next 60 days, scores each one's fit against the carrier's available Medicare plans (network overlap, premium math, plan-type preference), and produces this monthly report. The donut shows the cohort split: 41% high fit (the recommended Medicare plan covers their existing care relationships well + premium math works out), 38% medium, 21% low. The table makes the math visible for each member — current IFP premium and doctor count on the left, recommended Medicare plan + premium + doctor match on the right, with a green/red difference column showing exactly how much the transition saves (or costs) per month. The table now has a filter bar so Sandra can narrow the cohort to just the high-fit members (most likely to convert with a simple outbound call) or just low-fit (who need a more involved consultation). The Download CSV button in the footer pulls the currently-filtered set — useful for handing off to the carrier's licensed agent team for follow-up outreach.",
+    "bullets": [
+      "Runs monthly on the 1st — next run Jun 1, 2026 (last run May 1)",
+      "Scope: 1,240 members aging into Medicare in the next 60 days",
+      "Fit score breakdown: High 508 (41%) · Medium 471 (38%) · Low 261 (21%)",
+      "Table columns: Member · Current plan · Doctors · Current $ · Recommended plan · Type · Doctor match % · New $ · Difference",
+      "Difference column: green (savings) or red (increase) — most transitions save money, but premium PPO or Medigap routes can cost more",
+      "Pagination: 20 members per page · 62 pages total (1,240 ÷ 20)",
+      "NEW: Filter checkboxes above the table — All / High / Medium / Low fit, with counts and matching donut colors",
+      "NEW: Download CSV button in the footer (left group, primary green) — pulls the current filtered view"
+    ]
+  },
+  {
+    "title": "Member Detail — Patricia Anderson",
+    "subtitle": "IFP-to-Medicare transition analysis · current plan + recommendation + 3 alternatives",
+    "explanation": "Drill-down view from the IFP Transition Report's Details button. Shows everything Sandra needs to consult with Patricia about her Medicare transition: when her current IFP plan terminates, who her physicians are, her utilization profile, and how each candidate Medicare plan covers her care relationships. The recommended plan is in the green-bordered card with the monthly savings front and centre; the three alternatives below let Sandra compare trade-offs — premium PPO (5/5 doctors, $89/mo) vs comparable HMO ($48/mo, 4/5 with Dr. Park out) vs zero-premium budget ($0/mo, 3/5).",
+    "bullets": [
+      "Member summary header: M-101001, DOB Aug 5 1961, Medicare eligibility Aug 1 2026, 'Transition pending' status",
+      "Current plan card: Apex Choice Silver HMO · $456.20/mo · effective Jan 2023 · termination Jul 31, 2026",
+      "Utilization profile (Medium) and 5 physicians with specialties listed",
+      "Recommended card (green-bordered, 'Best fit' badge): Stellar Advantage Choice HMO · $32.50/mo · −$423.70/mo savings",
+      "Expandable doctor-match block: 4 of 5 in-network, Dr. Foster out (Dermatology)",
+      "Three alternatives ranked by fit: Premier Open PPO (5/5, $89) · Coastline Senior Choice (4/5, $48) · Pathfinder Value Plus (3/5, $0)",
+      "Every plan card includes a 'View Plan EOB' button"
+    ]
+  },
+  {
+    "title": "AEP Member Detail — Robert Anderson",
+    "subtitle": "Stay-case analysis · collapsible alternatives + collapsible campaign email",
+    "explanation": "Drill-down from any Details button on the AEP Stay vs Switch report. Page is now organised around what the operator actually needs by default — the recommendation + supporting evidence stays visible, while the alternative analysis and the rendered campaign email are both tucked into collapsible sections with prominent green expand buttons. The buttons carry a subtle 2.5s box-shadow pulse while closed to nudge the user to expand them, and lift on hover. Label text swaps via CSS based on the [open] state (Show ↔ Hide). The campaign email renders inside the collapsed card with its full carrier-branded layout, glance callout, agent CTA, and footer.",
+    "bullets": [
+      "Member summary, Why Stay card, Member context, and Current plan HERO all visible by default",
+      "Both supporting sections collapsed by default with prominent green expand buttons:",
+      "  'Show 3 plans' ↔ 'Hide plans' for Other plans considered",
+      "  'Preview email' ↔ 'Hide preview' for Campaign email",
+      "Buttons pulse gently (2.5s ease-in-out) while collapsed; pulse stops when open",
+      "Hover lifts the button 1px and deepens the box-shadow",
+      "Chevron icon rotates 180° on toggle",
+      "Email card stays useful at-a-glance: title, subtitle, and SENT badge always visible — the rendered email body lives inside"
+    ]
+  },
+  {
+    "title": "Surveys",
+    "subtitle": "Manage member surveys and track responses",
+    "explanation": "The Surveys landing page — a parent screen showing active deployments, canned BookCover-provided templates, and any in-progress drafts. Surveys sit between Reporting and Settings in the sidenav. The list distinguishes three states: deployed surveys collecting responses, ready-to-use canned templates (CAHPS-style satisfaction, onboarding, pulse checks, pre-AEP), and drafts the carrier is building. Each row links to detail or to results.",
+    "bullets": [
+      "Three sections: Active deployments, Canned surveys, Drafts",
+      "6 canned templates: Annual Experience (CAHPS), Onboarding, Care Experience, Quarterly Pulse, Pre-AEP, CS Follow-up",
+      "\"Create new survey\" button is disabled (builder coming in a later release)",
+      "Bottom callout: survey responses feed the risk-score algorithm"
+    ]
+  },
+  {
+    "title": "Annual Member Experience Survey — Detail",
+    "subtitle": "CAHPS-equivalent canned survey · 14 questions across 6 sections",
+    "explanation": "The detail view for a canned survey. Header shows status badges, deployment count, and three action buttons: Preview as Member (→ screen 31), Send to Members, and View Latest Results (→ screen 30). Five KPI tiles summarize deployment performance. The Questions tab is active by default, showing all 14 questions grouped into 6 sections with question type tags and answer options.",
+    "bullets": [
+      "14 questions across 6 sections: Getting care, Doctor communication, Customer service, Pharmacy, Plan satisfaction, Switching intent",
+      "KPI grid: 4 deployments, 8,420 responses, +41 NPS, 62% response rate, 5:42 avg completion",
+      "Question types shown: Likert (5-point), frequency (4-point), NPS (0-10), rating (0-10), free text",
+      "Footer notes: switching-intent + plan-satisfaction questions carry highest risk-score weight"
+    ]
+  },
+  {
+    "title": "Quarterly Pulse Check — Q1 2026 Results",
+    "subtitle": "Active deployment · 1,642 responses · 67% response rate",
+    "explanation": "The results dashboard for a deployed survey. Six KPI tiles (sent, responded, NPS, satisfaction, red flags, risk scores adjusted) anchor the top. Per-question breakdowns show the response distribution for each question with horizontal bar charts. An open-ended-feedback section clusters free-text responses into recurring themes ranked by mention count. The amber risk-score-impact card highlights members surfaced for follow-up. Closing segmentation panels show NPS by age group and plan type.",
+    "bullets": [
+      "KPI strip: 2,450 sent, 1,642 responded (67%), +42 NPS, 4.2/5 satisfaction, 47 red flags",
+      "Per-question bars: Q1 satisfaction (Mean 4.2), Q2 NPS (+42), Q3 switching intent (17% at-risk)",
+      "Text-clustered themes: network adequacy (87), specialist wait times (54), pharmacy gaps (32)",
+      "Risk-score impact callout: 47 members flagged — 17 immediate, 65 high-touch, 197 monitoring, 285 service-recovery",
+      "Segmentation: NPS by age (+35 to +18 across 65+ cohorts) and plan type (D-SNP +35 highest)"
+    ]
+  },
+  {
+    "title": "Survey — Preview as Member",
+    "subtitle": "CAHPS-style scrollable single-page survey · carrier-branded",
+    "explanation": "The exact view a member sees after clicking the survey link in their email — no BookCover chrome, only carrier branding (deep blue header, \"Your Health Plan\" wordmark, Sacramento footer). All 14 questions on a single scrollable page (traditional CAHPS style). Large 16px typography, generous spacing, accessible tap targets for an older audience. NPS-style 0-10 questions use a row of 11 circular buttons; Likert questions use stacked tappable rows; the closing free-text question uses a resizable textarea. A single \"Submit my responses\" CTA at the bottom in carrier blue.",
+    "bullets": [
+      "No BookCover UI — only carrier branding (deep blue #1E3A8A)",
+      "All-on-one-page scrollable design (no pagination, no skip logic)",
+      "Member greeted by first name; progress bar shows 0/14 at start",
+      "Question types render appropriately: Likert (radio rows), 0–10 NPS (circle buttons), free text (textarea)",
+      "Submit button in carrier blue; footer with carrier contact info",
+      "Preview-mode banner at top of demo (not seen by actual member) explains what this is"
+    ]
+  },
+  {
+    "useCase": "ST",
+    "phase": "Utility · Settings",
+    "title": "Settings",
+    "subtitle": "Workflow defaults, integrations, notifications, display preferences",
+    "explanation": "Settings holds the agent's account-wide preferences — defaults that apply to every campaign the system drafts, plus the status of the integrations BookCover depends on (email sender, Facebook Ads Manager, the carrier claims feed). Accessible from the left nav on every screen, separated from the workflow items.",
+    "bullets": [
+      "Campaign defaults: send window, batching strategy, suppression rules, auto-pause thresholds",
+      "Integrations: email sender verification (SPF/DKIM), Facebook Ads Manager, carrier claims feed status",
+      "Notifications: which events trigger which alerts (in-app + email)",
+      "Display: row density and theme",
+      "Independent of any workflow — the breadcrumb shows just 'Settings'"
+    ]
+  },
+  {
+    "useCase": "MA",
+    "phase": "Utility · My Account",
+    "title": "My Account",
+    "subtitle": "Profile, email signature, password & security",
+    "explanation": "My Account is the agent's personal profile — what appears on outbound emails and what the system uses to identify them. Separated from Settings because these are identity-level fields, not workflow defaults. Sign-out lives here too.",
+    "bullets": [
+      "Profile: name, title, email (verified), phone, license number, time zone",
+      "Email signature: rich-text editor · preview shows live formatting",
+      "Security: password rotation, 2FA status, active sessions",
+      "Sign out lives at the bottom of this page",
+      "Accessible from the left nav on every screen"
+    ]
+  }
+]

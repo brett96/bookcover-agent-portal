@@ -1,0 +1,50 @@
+[
+  {
+    "id": "daily-dash",
+    "label": "Daily · Dashboard",
+    "start": 0,
+    "count": 1
+  },
+  {
+    "id": "daily-camp",
+    "label": "Daily · Campaigns",
+    "start": 1,
+    "count": 8
+  },
+  {
+    "id": "daily-risk",
+    "label": "Daily · At Risk",
+    "start": 9,
+    "count": 3
+  },
+  {
+    "id": "members",
+    "label": "Member Details",
+    "start": 12,
+    "count": 4
+  },
+  {
+    "id": "reporting",
+    "label": "Reporting",
+    "start": 16,
+    "count": 12
+  },
+  {
+    "id": "surveys",
+    "label": "Surveys",
+    "start": 28,
+    "count": 4
+  },
+  {
+    "id": "settings",
+    "label": "Settings",
+    "start": 32,
+    "count": 1
+  },
+  {
+    "id": "myaccount",
+    "label": "My Account",
+    "start": 33,
+    "count": 1
+  }
+]

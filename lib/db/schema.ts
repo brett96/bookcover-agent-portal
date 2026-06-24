@@ -25,6 +25,8 @@ export const events = pgTable("events", {
   os: varchar("os", { length: 64 }),
   ip: varchar("ip", { length: 64 }),
   userAgent: text("user_agent"),
+  product: varchar("product", { length: 64 }),
+  site: varchar("site", { length: 16 }),
   properties: jsonb("properties").$type<Record<string, unknown>>(),
   occurredAt: timestamp("occurred_at", { withTimezone: true })
     .notNull()

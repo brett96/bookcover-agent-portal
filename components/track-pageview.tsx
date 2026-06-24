@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import {
+  DEPLOYMENT_PRODUCT,
+  DEPLOYMENT_SITE,
+} from "@/lib/analytics-config";
 import { forwardToCentralTrack } from "@/lib/central-track";
 
 function getOrCreateId(storageKey: string) {
@@ -43,17 +47,19 @@ export default function TrackPageView({
       eventType,
       path,
       referrer: document.referrer || null,
+      product: DEPLOYMENT_PRODUCT,
+      site: DEPLOYMENT_SITE,
       ...getUtmParams(),
       properties: properties ?? {},
     };
+
     void fetch("/api/track", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload),
     });
-    forwardToCentralTrack("agent", payload);
+    forwardToCentralTrack(payload);
   }, [eventType, properties]);
 
   return null;
 }
-

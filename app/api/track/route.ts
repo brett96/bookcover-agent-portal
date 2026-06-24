@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 import { getDb } from "@/lib/db/client";
 import { events } from "@/lib/db/schema";
+import { resolveProductSite, recordUsageEvent } from "@/lib/tracking";
+
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
 
 function decodeSafe(value: string | null | undefined): string | undefined {
   if (!value) return undefined;
@@ -10,6 +17,14 @@ function decodeSafe(value: string | null | undefined): string | undefined {
   } catch {
     return value;
   }
+}
+
+function json(data: unknown, status = 200) {
+  return NextResponse.json(data, { status, headers: CORS_HEADERS });
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
 }
 
 export async function POST(req: Request) {
@@ -23,6 +38,8 @@ export async function POST(req: Request) {
       utm_source?: string;
       utm_medium?: string;
       utm_campaign?: string;
+      product?: string;
+      site?: string;
       properties?: Record<string, unknown>;
     };
 
@@ -45,6 +62,33 @@ export async function POST(req: Request) {
       forwardedFor?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? null;
     const ip = ipRaw ? ipRaw.slice(0, 64) : undefined;
 
+    const { product, site } = resolveProductSite({
+      product: body.product,
+      site: body.site,
+    });
+
+    const firestoreResult = await recordUsageEvent({
+      visitorId,
+      sessionId,
+      eventType,
+      path,
+      referrer: body.referrer ?? null,
+      utmSource: body.utm_source,
+      utmMedium: body.utm_medium,
+      utmCampaign: body.utm_campaign,
+      country,
+      region,
+      city,
+      deviceType,
+      browser,
+      os,
+      ip,
+      userAgent: uaStr || undefined,
+      product,
+      site,
+      properties: body.properties ?? {},
+    });
+
     const db = getDb();
     if (db) {
       await db.insert(events).values({
@@ -64,14 +108,18 @@ export async function POST(req: Request) {
         os,
         ip,
         userAgent: uaStr || undefined,
+        product,
+        site,
         properties: body.properties ?? {},
       });
     }
 
-    return NextResponse.json({ ok: true });
+    return json({
+      ok: true,
+      stored: firestoreResult.stored === "firestore" ? "firestore" : db ? "postgres" : "none",
+    });
   } catch (e) {
     console.error("track", e);
-    return NextResponse.json({ ok: false }, { status: 400 });
+    return json({ ok: false }, 400);
   }
 }
-

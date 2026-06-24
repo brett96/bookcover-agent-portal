@@ -41,6 +41,26 @@ The handoff API verifies the JWT, sets the shared cookie on `.cercalabs.com`, an
 
 No Firebase or SMTP vars are required for the demo gate on this project.
 
+### Analytics (`usageEvents`)
+
+This deployment records events with `product: agent-demo` and `site: agent`.
+
+| Variable | Purpose |
+|----------|---------|
+| `FIREBASE_SERVICE_ACCOUNT` | Shared JSON credentials — writes to Firestore `usageEvents` |
+| `NEXT_PUBLIC_ANALYTICS_PRODUCT` | Client product slug (`agent-demo`) |
+| `DATABASE_URL` | Optional Postgres fallback when Firebase is unset |
+
+Tracking is loaded via `/analytics.js` on `/demo` and inside the embedded mock (`/demo/index.html`). Events are POSTed to `/api/track` (CORS-enabled) and optionally forwarded to `bookcover.cercalabs.com/api/track`.
+
+Use the canonical admin at `https://bookcover.cercalabs.com/admin` for cross-product filters, or `/admin/analytics` on this host with the same `FIREBASE_SERVICE_ACCOUNT`.
+
+Rebuild screen data after editing the monolith source:
+
+```bash
+npm run build:demo
+```
+
 ## Deploy on Vercel
 
 Set the env vars above, then deploy. Build output should include `ƒ /api/demo-auth/handoff`. Preview `*.vercel.app` hosts redirect to `bcagentportaldemo.cercalabs.com` via `vercel.json`.

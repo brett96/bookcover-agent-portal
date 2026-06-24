@@ -1,13 +1,21 @@
+import {
+  DEPLOYMENT_PRODUCT,
+  DEPLOYMENT_SITE,
+} from "@/lib/analytics-config";
+
 const CENTRAL_TRACK_URL =
   (process.env.NEXT_PUBLIC_LANDING_URL ?? "https://bookcover.cercalabs.com") +
   "/api/track";
 
 export function forwardToCentralTrack(
-  site: "member" | "agent",
-  payload: Record<string, unknown>
+  payload: Record<string, unknown>,
 ): void {
   if (typeof window === "undefined") return;
-  const body = JSON.stringify({ site, ...payload });
+  const body = JSON.stringify({
+    product: DEPLOYMENT_PRODUCT,
+    site: DEPLOYMENT_SITE,
+    ...payload,
+  });
   const url = CENTRAL_TRACK_URL;
   if (navigator.sendBeacon) {
     navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
@@ -16,7 +24,7 @@ export function forwardToCentralTrack(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body,
-      credentials: "include",
+      credentials: "omit",
       keepalive: true,
     });
   }
